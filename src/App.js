@@ -1,13 +1,12 @@
 
 import './App.css';
-import Counter from './components/Counter';
+
+
 function App() {
   return (
-    <div className="App">
-          <Counter />
-            
-          
-    </div>
+       <div className='App'>
+             <h1>This Example With redux </h1>
+       </div>
   );
 }
 
