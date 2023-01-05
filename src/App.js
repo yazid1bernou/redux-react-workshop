@@ -1,14 +1,15 @@
 
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router , Route , Switch , Link } from 'react-router-dom';
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Products from "./pages/Products";
+import Product from './pages/Product';
 
 function App() {
   return (
     
-      <Router>
+    <Router>
        <div className='container'>
         
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -26,7 +27,7 @@ function App() {
                       <Link className="nav-link" to="/products">Producs</Link>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" to="/cart">Cart</Link>
+                      <Link className="nav-link" to='/cart'>Cart</Link>
                     </li>
                 
                   </ul>
@@ -35,15 +36,15 @@ function App() {
               </div>
             </nav>
          
-            <Routes>
-                 <Route path='/' exact element={ <Home/>} />
-                 <Route path='/cart'  element={ <Cart/>} />
-                 <Route path='/products'  element={ <Products/>} />
-                 
-            </Routes>
+            
+                 <Route path="/" exact  component={Home} />
+                 <Route path="/cart"  exact component={Cart} />
+                 <Route path="/products" exact component={Products}  />
+                 <Route path="/products/:id" exact  component={Product}  />
+           
         
        </div>
-    </Router>
+      </Router>
   );
 }
 

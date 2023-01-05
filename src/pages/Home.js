@@ -1,11 +1,15 @@
 import React from "react";
 
-export default function Home () {
-    return (
+export  default  class Home extends React.Component {
 
-        <div>
-            Home page 
-        </div>
-    )
+    render () {
+        return (
+
+            <div>
+                Home page 
+            </div>
+        )
+    }
+ 
 }
 

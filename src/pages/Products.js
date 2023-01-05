@@ -1,5 +1,5 @@
 import React  from "react";
-import ProductItem from "./components/ProductItem";
+import ProductItem from "../components/ProductItem";
 import ProductsApi from "../api/products" ;
 
 
@@ -27,6 +27,9 @@ export default class Products extends React.Component {
   render () {
     
     return (
+         
+        
+      
             <div className="row">
                 {this.state.products.map((product) => (
                     <div className={"col-4"} key={product.id}>
@@ -38,6 +41,7 @@ export default class Products extends React.Component {
                   
               
             </div>
+          
     )
   }
 }

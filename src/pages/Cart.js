@@ -1,9 +1,13 @@
 import React from "react";
 
-export default function Cart () {
-    return (
-        <div>
-            page Cart 
-        </div>
-    )
-}
+export  default class Cart  extends React.Component{
+
+    render () {
+        return (
+            <div>
+                page Cart 
+            </div>
+        )
+    }
+    }
+    
