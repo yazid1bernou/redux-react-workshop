@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Products from "./pages/Products";
 import Product from './pages/Product';
+import CartIcon from './components/CartIcon';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
                  
                 </div>
               </div>
+              <CartIcon />
             </nav>
          
             
