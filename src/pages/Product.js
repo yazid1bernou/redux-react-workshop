@@ -1,12 +1,13 @@
 import React from "react";
 import {getById} from "../api/products";
+import { connect } from "react-redux";
+import { addToCart } from "../store/actions/actions";
 
-
-export default class  Product  extends  React.Component {
+ class  Product  extends  React.Component {
    
           state =  {
             product : {} , 
-            quantity : 3 , 
+            quantity : 0 , 
             loading : true ,
 
           }
@@ -31,7 +32,9 @@ export default class  Product  extends  React.Component {
           })
         }
         
-
+        AddToCard = (product) => {
+             this.props.AddToCard(product , this.state.quantity)
+        }
         
        render () {
           if (this.state.loading) {
@@ -58,7 +61,7 @@ export default class  Product  extends  React.Component {
                             <br/>
                             <br/>
                             <p> Total : {quantity * product.price}</p> 
-                            <button type="button" className="btn btn-primary" onClick={this.AddToCard}>Add to Card</button>
+                            <button type="button" className="btn btn-primary" onClick={() => this.AddToCard(product)}>Add to Card</button>
                      </div>
                  </div>
 
@@ -68,3 +71,11 @@ export default class  Product  extends  React.Component {
       
  
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+     AddToCard :  (productsInfo , quantity ) => dispatch(addToCart(productsInfo , quantity ))
+  }
+}
+
+export default connect(null , mapDispatchToProps)(Product) ;

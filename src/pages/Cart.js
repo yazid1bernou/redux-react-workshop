@@ -1,28 +1,10 @@
 import React  from "react";
 import CartItem from "../components/CartItem";
 import ProductsApi from "../api/products" ;
+import { connect, Connect } from "react-redux";
 
-
-export default class Card extends React.Component {
+class Card extends React.Component {
    
-   state =  {
-     products : []
-   }
-  
-  componentDidMount =  () => {
-    ProductsApi.getAll().then (
-       data => {
-        this.setState({
-          products : data 
-        })
-       }
-      
-    ) 
-  
-  }
-  
-  
-  
  
   render () {
     
@@ -30,15 +12,15 @@ export default class Card extends React.Component {
          
           <div>
                <div className="row">
-                {this.state.products.map((product) => (
-                    <div className={"col-3"} key={product.id}>
-                          <CartItem product={product} />  
+                {this.props.CartItem.map(item => 
+                    <div className={"col-3"} key={item.product.id}>
+                          <CartItem item={item} />  
                     </div>
-                ))}
+                )}
                   
                  
                </div>
-               <p> Total : 3000</p>
+               <p> Total : {this.props.total}</p> 
                <div className="d-grid">
                   <button type="button" className="btn btn-primary"> Pay</button>
                </div>
@@ -50,3 +32,11 @@ export default class Card extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+    return {
+      CartItem : state.cart ,
+      total : state.cart.reduce((total , item) =>  total + item.quantity * item.product , 0) 
+    }
+}
+export default connect(mapStateToProps)(Card);

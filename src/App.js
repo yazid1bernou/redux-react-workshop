@@ -6,6 +6,8 @@ import Cart from "./pages/Cart";
 import Products from "./pages/Products";
 import Product from './pages/Product';
 import CartIcon from './components/CartIcon';
+import store from './store/store';
+import { Provider } from 'react-redux';
 
 function App() {
   return (
@@ -50,4 +52,10 @@ function App() {
   );
 }
 
-export default App;
+function AppWithStore() {
+  return  <Provider store={store}>
+               <App />
+          </Provider>
+}
+
+export default AppWithStore;
