@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-import {createStore , compose , applyMiddleware } from "redux";
-=======
+
 import {createStore , compose , applyMiddleware} from "redux";
->>>>>>> origin/yazid_home
+
 import thunk from "redux-thunk";
 import cartReducer from "./reducers/index";
 
