@@ -20,7 +20,7 @@ class Card extends React.Component {
           <div>
                <div className="row">
                 {this.props.CartItem.map((item , index) => 
-                    <div className={"col-3"} key={item.product.id}>
+                    <div className={"col-3"} key={index}>
                           <CartItem item={item} index={index}  />  
                     </div>
                 )}
