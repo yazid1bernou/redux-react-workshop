@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import {createStore , compose , applyMiddleware } from "redux";
+=======
+import {createStore , compose , applyMiddleware} from "redux";
+>>>>>>> origin/yazid_home
 import thunk from "redux-thunk";
 import cartReducer from "./reducers/index";
+
 const initialState = {
        cart : [
             {
@@ -19,9 +24,11 @@ const initialState = {
 /* function reducers (state) {
      return state
 } */
-const store =  createStore(cartReducer , initialState  , compose(
+
+const store =  createStore(cartReducer , initialState  , compose (
      applyMiddleware(thunk),
-     /* window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() , */
+   /*   window.__REDUX_DEVTOOLS_EXTENSION__&& window.__REDUX_DEVTOOLS_EXTENSION__() */
+     
 
 ))
 
